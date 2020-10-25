@@ -1,15 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route} from "react-router-dom"
+import WelcomePage from "./components/WelcomePage";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+      <Route path="/" exact component={WelcomePage}/>
     </div>
   );
 }
