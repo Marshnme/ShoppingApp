@@ -6,6 +6,7 @@ import {useState} from "react";
 const WelcomePage = (props) => {
     const [listOfItems, setListOfItems] = useState([]);
     const [price, setPrice] = useState([]);
+    const [total, setTotal] = useState([]);
     const [itemText , setItemText] = useState("");
     const [priceText , setPriceText] = useState("");
     
@@ -27,7 +28,13 @@ const WelcomePage = (props) => {
         setPrice([...price , priceText]);
         ClearText()
     };
-    console.log("list of items", listOfItems)
+    
+    const handleAddPrice = (e) =>{
+        e.preventDefault();
+        setTotal(price.reduce((a,b) => 1*a + 1*b))
+
+    }
+    console.log("prices", price)
     return(
         <div class = "container"> 
             <header>
@@ -50,7 +57,8 @@ const WelcomePage = (props) => {
             </body>
             <footer>
                 <h3>Total</h3>
-                <h3>ADD</h3>
+                <p>{total}</p>
+                <button onClick={handleAddPrice}>ADD</button>
             </footer>
         </div>
     );
