@@ -1,0 +1,18 @@
+.labels{
+    display:flex;
+    justify-content: center;
+}
+.labels h3{
+    width:25%;
+    border-bottom:1px solid black;
+}
+
+footer{ 
+    display:flex;
+    justify-content: center;
+}
+
+footer h3{
+    width:25%;
+    border-top:1px solid black;
+}

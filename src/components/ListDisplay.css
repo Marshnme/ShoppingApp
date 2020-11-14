@@ -1,0 +1,17 @@
+/* *{
+    border:1px solid red;
+} */
+
+.wrapper{
+    display:flex;
+    justify-content: center;
+    
+}
+
+.item{
+    width:25%;
+}
+
+.price{
+    width:25%;
+}

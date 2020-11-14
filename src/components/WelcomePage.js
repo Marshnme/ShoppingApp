@@ -29,7 +29,7 @@ const WelcomePage = (props) => {
     };
     console.log("list of items", listOfItems)
     return(
-        <div class = "wrapper"> 
+        <div class = "container"> 
             <header>
                 <h1>Grocery Price Calculator!</h1>
             </header>
@@ -42,8 +42,16 @@ const WelcomePage = (props) => {
                 
             </div>
             <body>
+                <div class="labels">
+                    <h3>Items</h3>
+                    <h3>Price</h3>
+                </div>
                 <ListDisplay listOfItems={listOfItems} price = {price}></ListDisplay>
             </body>
+            <footer>
+                <h3>Total</h3>
+                <h3>ADD</h3>
+            </footer>
         </div>
     );
 };
