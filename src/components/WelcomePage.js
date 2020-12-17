@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./WelcomePage.css"
 import ListDisplay from "./ListDisplay";
 import {useState} from "react";
 
 const WelcomePage = (props) => {
+
+
+    // localStorage.setItem('itemState', JSON.stringify(listOfItems))
+    //     localStorage.setItem('priceState', JSON.stringify(price))
+    //     localStorage.setItem('totalState', JSON.stringify(total))
+    
+// localStorage.getItem('itemState')
+//         JSON.parse(localStorage.getItem('priceState'))
+//         JSON.parse(localStorage.getItem('totalState'))
+    useEffect((listOfItems,price,total) => {
+        
+        if(localStorage.getItem('itemState') == null){
+            localStorage.setItem('itemState', JSON.stringify(listOfItems));
+            localStorage.setItem('priceState', JSON.stringify(price));
+            localStorage.setItem('totalState', JSON.stringify(total));
+        }else if(localStorage.getItem('itemState')){ 
+            console.log("GET THIS?", JSON.parse(localStorage.getItem('itemState')))
+            setListOfItems(JSON.parse(localStorage.getItem('itemState')));  
+            setPrice(JSON.parse(localStorage.getItem('priceState'))); 
+            setTotal(JSON.parse(localStorage.getItem('totalState')));
+        }
+    },[]);
+
     const [listOfItems, setListOfItems] = useState([]);
     const [price, setPrice] = useState([]);
     const [total, setTotal] = useState([]);
@@ -34,39 +57,44 @@ const WelcomePage = (props) => {
         if(price.length === 0){
             return;
         }else{
-            return setTotal(price.reduce((a,b) => 1*a + 1*b))
+            return setTotal(price.reduce((a,b) => 1*a + 1*b)),
+            localStorage.setItem('itemState', JSON.stringify(listOfItems)),
+            localStorage.setItem('priceState', JSON.stringify(price)),
+            localStorage.setItem('totalState', JSON.stringify(total))
         }
         
 
+
+         
     }
     console.log("prices", price)
     return(
-        <div class = "container"> 
+        <div className = "container"> 
             <header>
                 <h1>Grocery Price Calculator!</h1>
             </header>
             <body>
-                <div class = "inputSection">
+                <div className = "inputSection">
                     <form className="inputParent" onSubmit = {handleSubmit}>
                         <div className="addItemInputs">
                             <div className="inputUnderline">
-                                <input className="welcomeInput" type = "text" onChange = {handleChange} placeholder="Your Item..." value={itemText} ></input>
+                                <input className="welcomeInput" type = "text" required onChange = {handleChange} placeholder="Your Item..." value={itemText} ></input>
                             </div>
                             <div className="inputUnderline">
-                                <input className="welcomeInput" type = "text" onChange = {handlePriceChange} placeholder="Price of your item(USD)" value={priceText} ></input>
+                                <input className="welcomeInput" type = "number" required onChange = {handlePriceChange} placeholder="Price of your item(USD)" value={priceText} ></input>
                             </div>
                             
                             
                         </div>
                         <div className="addItemButton">
-                            <button type="submit" onSubmit = {handleSubmit} >Add</button>
+                            <button className="buttonStyle" type="submit" onSubmit = {handleSubmit} >Add</button>
                         </div>
                         
                     </form>
                     
                 </div>
                 
-                    <div class="labels">
+                    <div className="labels">
                         <h3>Items</h3>
                         <h3>Price</h3>
                     </div>
@@ -75,7 +103,7 @@ const WelcomePage = (props) => {
             <footer className="welcomeFooter">
                 <div className="totalContain">
                     <p className = "totalP">${total}</p>
-                    <button type="text" onClick={handleAddPrice}>Total</button>
+                    <button  className="totalButtonStyle" type="text" onClick={handleAddPrice}>TOTAL</button>
                 </div>
                 
             </footer>

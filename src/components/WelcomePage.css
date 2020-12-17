@@ -48,8 +48,33 @@ form .welcomeInput,.welcomeInput:focus {
 
 
 .addItemButton{
-    width:100%;
+    width:70%;
     margin-top:2%;
+}
+
+.buttonStyle{
+    width:15%;
+    height:110%;
+    border-radius: 10px;
+    outline:none;
+    background-color:#6aad6a;
+    border:1px solid black;
+ }
+
+
+.totalButtonStyle{
+    border-radius: 10px;
+    outline:none;
+    margin-top:2%;
+    width:15%;
+    background-color:#6aad6a;
+    border:1px solid black;
+    
+}
+
+.totalButtonStyle:hover,.buttonStyle:hover{
+    transform: scale(1.01);
+    box-shadow: 5px 5px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .welcomeFooter{ 
@@ -72,5 +97,5 @@ form .welcomeInput,.welcomeInput:focus {
 
 .totalP{
     margin-top:2%;
-    margin-right:20%;
+    margin-right:10%;
 }

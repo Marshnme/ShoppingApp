@@ -5,16 +5,16 @@ import {useState} from "react";
 const ListDisplay = (props) => {
     console.log("props",props)
     return(
-        <div class = "wrapper"> 
-            <div class="item">
+        <div className = "wrapper"> 
+            <div className="item">
                 {props.listOfItems.map((groceryItem) => {
-                                console.log("groceryItem", groceryItem)
+                                
                                 return <p>{groceryItem}</p>
                             })}
             </div>
-            <div class="price">
+            <div className="price">
                 {props.price.map((priceItem) => {
-                    console.log("priceItem", priceItem)
+                    
                     return <p>${priceItem}</p>
                 })}
             </div>
