@@ -48,9 +48,29 @@ form .welcomeInput,.welcomeInput:focus {
 
 
 .addItemButton{
-    width:100%;
+    width:70%;
     margin-top:2%;
 }
+
+.buttonStyle{
+    width:15%;
+    border-radius: 10px;
+    outline:none;
+    background-color:#6aad6a;
+    border:1px solid black;
+ }
+
+
+.totalButtonStyle{
+    border-radius: 10px;
+    outline:none;
+    margin-top:2%;
+    width:15%;
+    background-color:#6aad6a;
+    border:1px solid black;
+    
+}
+
 
 .welcomeFooter{ 
     display:flex;
@@ -72,5 +92,5 @@ form .welcomeInput,.welcomeInput:focus {
 
 .totalP{
     margin-top:2%;
-    margin-right:20%;
+    margin-right:10%;
 }

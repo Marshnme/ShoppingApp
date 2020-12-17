@@ -50,16 +50,16 @@ const WelcomePage = (props) => {
                     <form className="inputParent" onSubmit = {handleSubmit}>
                         <div className="addItemInputs">
                             <div className="inputUnderline">
-                                <input className="welcomeInput" type = "text" onChange = {handleChange} placeholder="Your Item..." value={itemText} ></input>
+                                <input className="welcomeInput" type = "text" required onChange = {handleChange} placeholder="Your Item..." value={itemText} ></input>
                             </div>
                             <div className="inputUnderline">
-                                <input className="welcomeInput" type = "text" onChange = {handlePriceChange} placeholder="Price of your item(USD)" value={priceText} ></input>
+                                <input className="welcomeInput" type = "number" required onChange = {handlePriceChange} placeholder="Price of your item(USD)" value={priceText} ></input>
                             </div>
                             
                             
                         </div>
                         <div className="addItemButton">
-                            <button type="submit" onSubmit = {handleSubmit} >Add</button>
+                            <button className="buttonStyle" type="submit" onSubmit = {handleSubmit} >Add</button>
                         </div>
                         
                     </form>
@@ -75,7 +75,7 @@ const WelcomePage = (props) => {
             <footer className="welcomeFooter">
                 <div className="totalContain">
                     <p className = "totalP">${total}</p>
-                    <button type="text" onClick={handleAddPrice}>Total</button>
+                    <button  className="totalButtonStyle" type="text" onClick={handleAddPrice}>Total</button>
                 </div>
                 
             </footer>
