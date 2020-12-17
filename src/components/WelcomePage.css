@@ -54,6 +54,7 @@ form .welcomeInput,.welcomeInput:focus {
 
 .buttonStyle{
     width:15%;
+    height:110%;
     border-radius: 10px;
     outline:none;
     background-color:#6aad6a;
@@ -71,6 +72,10 @@ form .welcomeInput,.welcomeInput:focus {
     
 }
 
+.totalButtonStyle:hover,.buttonStyle:hover{
+    transform: scale(1.01);
+    box-shadow: 5px 5px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
 .welcomeFooter{ 
     display:flex;
