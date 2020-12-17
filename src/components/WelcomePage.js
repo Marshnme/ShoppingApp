@@ -31,7 +31,12 @@ const WelcomePage = (props) => {
     
     const handleAddPrice = (e) =>{
         e.preventDefault();
-        setTotal(price.reduce((a,b) => 1*a + 1*b))
+        if(price.length === 0){
+            return;
+        }else{
+            return setTotal(price.reduce((a,b) => 1*a + 1*b))
+        }
+        
 
     }
     console.log("prices", price)
@@ -40,25 +45,39 @@ const WelcomePage = (props) => {
             <header>
                 <h1>Grocery Price Calculator!</h1>
             </header>
-            <div class = "inputBox">
-                <form onSubmit = {handleSubmit}>
-                    <button type="submit" onSubmit = {handleSubmit} >Add</button>
-                    <input type = "text" onChange = {handleChange} placeholder="Buying an item?" value={itemText} ></input>
-                    <input type = "text" onChange = {handlePriceChange} placeholder="Price of your item..." value={priceText} ></input>
-                </form>
-                
-            </div>
             <body>
-                <div class="labels">
-                    <h3>Items</h3>
-                    <h3>Price</h3>
+                <div class = "inputSection">
+                    <form className="inputParent" onSubmit = {handleSubmit}>
+                        <div className="addItemInputs">
+                            <div className="inputUnderline">
+                                <input className="welcomeInput" type = "text" onChange = {handleChange} placeholder="Your Item..." value={itemText} ></input>
+                            </div>
+                            <div className="inputUnderline">
+                                <input className="welcomeInput" type = "text" onChange = {handlePriceChange} placeholder="Price of your item(USD)" value={priceText} ></input>
+                            </div>
+                            
+                            
+                        </div>
+                        <div className="addItemButton">
+                            <button type="submit" onSubmit = {handleSubmit} >Add</button>
+                        </div>
+                        
+                    </form>
+                    
                 </div>
-                <ListDisplay listOfItems={listOfItems} price = {price}></ListDisplay>
+                
+                    <div class="labels">
+                        <h3>Items</h3>
+                        <h3>Price</h3>
+                    </div>
+                    <ListDisplay listOfItems={listOfItems} price = {price}></ListDisplay>
             </body>
-            <footer>
-                <h3>Total</h3>
-                <p>{total}</p>
-                <button onClick={handleAddPrice}>ADD</button>
+            <footer className="welcomeFooter">
+                <div className="totalContain">
+                    <p className = "totalP">${total}</p>
+                    <button type="text" onClick={handleAddPrice}>Total</button>
+                </div>
+                
             </footer>
         </div>
     );

@@ -15,7 +15,7 @@ const ListDisplay = (props) => {
             <div class="price">
                 {props.price.map((priceItem) => {
                     console.log("priceItem", priceItem)
-                    return <p>{priceItem}</p>
+                    return <p>${priceItem}</p>
                 })}
             </div>
         </div>

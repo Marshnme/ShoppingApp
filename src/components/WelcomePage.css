@@ -7,12 +7,70 @@
     border-bottom:1px solid black;
 }
 
-footer{ 
+.inputSection{
     display:flex;
-    justify-content: center;
+    flex-flow: row wrap;
+    justify-content:center;
+    margin-top:3%;
 }
 
-footer h3{
-    width:25%;
-    border-top:1px solid black;
+.inputParent{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    width:100%;
+}
+
+
+form .welcomeInput,.welcomeInput:focus {
+    border:none;
+    outline:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.addItemInputs{
+    display:flex;
+    width:50%;
+    justify-content: space-around;
+}
+
+.addItemInputs input{
+    text-align: center;
+}
+
+.inputUnderline{
+    border-bottom: 1px solid black;
+}
+
+
+.addItemButton{
+    width:100%;
+    margin-top:2%;
+}
+
+.welcomeFooter{ 
+    display:flex;
+    justify-content: center;
+    margin-top:10%;
+
+}
+
+
+.totalContain{
+    display:flex;
+    justify-content: flex-end;
+        width:50%;
+        border-top:1px solid black;
+        
+        
+}
+
+
+.totalP{
+    margin-top:2%;
+    margin-right:20%;
 }
