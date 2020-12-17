@@ -31,7 +31,12 @@ const WelcomePage = (props) => {
     
     const handleAddPrice = (e) =>{
         e.preventDefault();
-        setTotal(price.reduce((a,b) => 1*a + 1*b))
+        if(price.length === 0){
+            return;
+        }else{
+            return setTotal(price.reduce((a,b) => 1*a + 1*b))
+        }
+        
 
     }
     console.log("prices", price)
@@ -68,9 +73,11 @@ const WelcomePage = (props) => {
                     <ListDisplay listOfItems={listOfItems} price = {price}></ListDisplay>
             </body>
             <footer className="welcomeFooter">
-                <h3>Total</h3>
-                <p>{total}</p>
-                <button onClick={handleAddPrice}>ADD</button>
+                <div className="totalContain">
+                    <p className = "totalP">${total}</p>
+                    <button type="text" onClick={handleAddPrice}>Total</button>
+                </div>
+                
             </footer>
         </div>
     );
