@@ -3,7 +3,7 @@ import "./ListDisplay.css"
 import {useState} from "react";
 
 const ListDisplay = (props) => {
-    console.log("props",props)
+    // console.log("props",props)
     return(
         <div className = "wrapper"> 
             <div className="item">

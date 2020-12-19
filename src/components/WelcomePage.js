@@ -19,8 +19,7 @@ const WelcomePage = (props) => {
             localStorage.setItem('itemState', JSON.stringify(listOfItems));
             localStorage.setItem('priceState', JSON.stringify(price));
             localStorage.setItem('totalState', JSON.stringify(total));
-        }else if(localStorage.getItem('itemState')){ 
-            console.log("GET THIS?", JSON.parse(localStorage.getItem('itemState')))
+        }else if(localStorage.getItem('itemState')){    
             setListOfItems(JSON.parse(localStorage.getItem('itemState')));  
             setPrice(JSON.parse(localStorage.getItem('priceState'))); 
             setTotal(JSON.parse(localStorage.getItem('totalState')));
@@ -52,22 +51,27 @@ const WelcomePage = (props) => {
         ClearText()
     };
     
-    const handleAddPrice = (e) =>{
+    const handleAddTotal = (e) =>{
         e.preventDefault();
+        console.log("total ",total)
         if(price.length === 0){
             return;
         }else{
-            return setTotal(price.reduce((a,b) => 1*a + 1*b)),
-            localStorage.setItem('itemState', JSON.stringify(listOfItems)),
-            localStorage.setItem('priceState', JSON.stringify(price)),
-            localStorage.setItem('totalState', JSON.stringify(total))
+            console.log("handleaddprice",price)
+            console.log("total 1",total)
+            setTotal(price.reduce((a,b) => 1*a + 1*b));
+            console.log(price.reduce((a,b) => 1*a + 1*b))
+            localStorage.setItem('itemState', JSON.stringify(listOfItems));
+            localStorage.setItem('priceState', JSON.stringify(price));
+            console.log("total 2",total);
+            localStorage.setItem('totalState', JSON.stringify(total));
         }
         
 
 
          
     }
-    console.log("prices", price)
+    console.log("total", total)
     return(
         <div className = "container"> 
             <header>
@@ -103,7 +107,7 @@ const WelcomePage = (props) => {
             <footer className="welcomeFooter">
                 <div className="totalContain">
                     <p className = "totalP">${total}</p>
-                    <button  className="totalButtonStyle" type="text" onClick={handleAddPrice}>TOTAL</button>
+                    <button  className="totalButtonStyle" type="text" onClick={handleAddTotal}>TOTAL</button>
                 </div>
                 
             </footer>
