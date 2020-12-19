@@ -3,7 +3,7 @@ import "./ListDisplay.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash} from '@fortawesome/free-solid-svg-icons'
 import { faEdit} from '@fortawesome/free-solid-svg-icons'
-// import {useState} from "react";
+
 
 const ListDisplay = (props) => {
     console.log(props.listOfItems)
