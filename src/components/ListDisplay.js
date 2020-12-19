@@ -11,6 +11,7 @@ const ListDisplay = (props) => {
     const edit = <FontAwesomeIcon icon={faEdit}/>
     const DeleteFunc = (num) =>{
         props.updateItems(props.listOfItems.filter(index => props.listOfItems.indexOf(index) != num))
+        props.updatePrices(props.price.filter(index => props.price.indexOf(index) != num))
     }
     console.log("props",props)
     return(
@@ -20,7 +21,7 @@ const ListDisplay = (props) => {
                                 console.log(index)
                                 return( 
                                 <div  className="itemHolder">
-                                    <span onClick={()=>DeleteFunc(index)} className="editIcon">{edit}</span>
+                                    <span className="editIcon">{edit}</span>
                                      <p className="item" key={index}>{groceryItem}</p>
                                 </div>
                 );})}
