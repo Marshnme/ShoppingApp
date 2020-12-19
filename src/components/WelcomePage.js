@@ -48,7 +48,9 @@ const WelcomePage = (props) => {
         e.preventDefault();
         setListOfItems([...listOfItems, itemText]);
         setPrice([...price , priceText]);
-        ClearText()
+        ClearText();
+        // const priceReduced = price.reduce((a,b) => 1*a + 1*b);
+        // SetToStorage(priceReduced);
     };
 
     const SetToStorage = (e) =>{
@@ -67,10 +69,11 @@ const WelcomePage = (props) => {
             console.log("handleaddprice",price)
             console.log("total 1",addedUp)
              const priceReduced = price.reduce((a,b) => 1*a + 1*b);
-            setAddedUp([priceReduced]);
+            setAddedUp(priceReduced);
             SetToStorage(priceReduced)
         };
-    
+
+
     
     }
     return(
