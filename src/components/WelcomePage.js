@@ -5,6 +5,11 @@ import {useState} from "react";
 
 const WelcomePage = (props) => {
 
+    const [listOfItems, setListOfItems] = useState([]);
+    const [price, setPrice] = useState([]);
+    const [addedUp, setAddedUp] = useState([]);
+    const [itemText , setItemText] = useState("");
+    const [priceText , setPriceText] = useState("");
 
     // localStorage.setItem('itemState', JSON.stringify(listOfItems))
     //     localStorage.setItem('priceState', JSON.stringify(price))
@@ -26,11 +31,11 @@ const WelcomePage = (props) => {
         }
     },[]);
 
-    const [listOfItems, setListOfItems] = useState([]);
-    const [price, setPrice] = useState([]);
-    const [addedUp, setAddedUp] = useState([]);
-    const [itemText , setItemText] = useState("");
-    const [priceText , setPriceText] = useState("");
+    // const [listOfItems, setListOfItems] = useState([]);
+    // const [price, setPrice] = useState([]);
+    // const [addedUp, setAddedUp] = useState([]);
+    // const [itemText , setItemText] = useState("");
+    // const [priceText , setPriceText] = useState("");
     
     const ClearText = () => {
         setItemText("");
@@ -59,19 +64,29 @@ const WelcomePage = (props) => {
                 localStorage.setItem('priceState', JSON.stringify(price));
                 localStorage.setItem('totalState', JSON.stringify(e));
             }
+
+            const SetStorageEmpty = (empty) =>{
+                
+                        localStorage.setItem('itemState', JSON.stringify(listOfItems));
+                        localStorage.setItem('priceState', JSON.stringify(price));
+                        localStorage.setItem('totalState', JSON.stringify(empty));
+                    }
  
     const handleAddTotal = (e) =>{
         e.preventDefault();
+        
         console.log("total ",addedUp)
         if(price.length === 0){
-            return;
+            setAddedUp([]);
+            const empty = [];
+            SetStorageEmpty(empty)
         }else{
             console.log("handleaddprice",price)
             console.log("total 1",addedUp)
-             const priceReduced = price.reduce((a,b) => 1*a + 1*b);
+            const priceReduced = price.reduce((a,b) => 1*a + 1*b);
             setAddedUp(priceReduced);
             SetToStorage(priceReduced)
-        };
+        }
 
 
     
