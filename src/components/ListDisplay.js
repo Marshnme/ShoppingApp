@@ -6,9 +6,12 @@ import { faEdit} from '@fortawesome/free-solid-svg-icons'
 // import {useState} from "react";
 
 const ListDisplay = (props) => {
-
+    console.log(props.listOfItems)
     const trashCan = <FontAwesomeIcon icon={faTrash}/>
     const edit = <FontAwesomeIcon icon={faEdit}/>
+    const DeleteFunc = (num) =>{
+        // props.listOfItems.splice(num)
+    }
     console.log("props",props)
     return(
         <div className = "wrapper"> 
@@ -17,7 +20,7 @@ const ListDisplay = (props) => {
                                 console.log(index)
                                 return( 
                                 <div className="itemHolder">
-                                    <span className="editIcon">{edit}</span>
+                                    <span onClick={DeleteFunc(index)} className="editIcon">{edit}</span>
                                      <p className="item" key={index}>{groceryItem}</p>
                                 </div>
                 );})}

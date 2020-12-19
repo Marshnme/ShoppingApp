@@ -19,7 +19,7 @@ const WelcomePage = (props) => {
             localStorage.setItem('itemState', JSON.stringify(listOfItems));
             localStorage.setItem('priceState', JSON.stringify(price));
             localStorage.setItem('totalState', JSON.stringify(addedUp));
-        }else if(localStorage.getItem('itemState')){    
+        }else{    
             setListOfItems(JSON.parse(localStorage.getItem('itemState')));  
             setPrice(JSON.parse(localStorage.getItem('priceState'))); 
             setAddedUp(JSON.parse(localStorage.getItem('totalState')));
@@ -69,12 +69,9 @@ const WelcomePage = (props) => {
              const priceReduced = price.reduce((a,b) => 1*a + 1*b);
             setAddedUp([priceReduced]);
             SetToStorage(priceReduced)
-        }
-        
-        
-
-
-         
+        };
+    
+    
     }
     return(
         <div className = "container"> 
@@ -106,7 +103,7 @@ const WelcomePage = (props) => {
                         <h3>Items</h3>
                         <h3>Price</h3>
                     </div>
-                    <ListDisplay listOfItems={listOfItems} price = {price}></ListDisplay>
+                    <ListDisplay listOfItems={listOfItems} updateItems = {setListOfItems} price = {price} updatePrices = {setPrice} ></ListDisplay>
             </body>
             <footer className="welcomeFooter">
                 <div className="totalContain">
