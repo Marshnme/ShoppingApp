@@ -13,22 +13,22 @@ const WelcomePage = (props) => {
 // localStorage.getItem('itemState')
 //         JSON.parse(localStorage.getItem('priceState'))
 //         JSON.parse(localStorage.getItem('totalState'))
-    useEffect((listOfItems,price,total) => {
+    useEffect(() => {
         
         if(localStorage.getItem('itemState') == null){
             localStorage.setItem('itemState', JSON.stringify(listOfItems));
             localStorage.setItem('priceState', JSON.stringify(price));
-            localStorage.setItem('totalState', JSON.stringify(total));
+            localStorage.setItem('totalState', JSON.stringify(addedUp));
         }else if(localStorage.getItem('itemState')){    
             setListOfItems(JSON.parse(localStorage.getItem('itemState')));  
             setPrice(JSON.parse(localStorage.getItem('priceState'))); 
-            setTotal(JSON.parse(localStorage.getItem('totalState')));
+            setAddedUp(JSON.parse(localStorage.getItem('totalState')));
         }
     },[]);
 
     const [listOfItems, setListOfItems] = useState([]);
     const [price, setPrice] = useState([]);
-    const [total, setTotal] = useState([]);
+    const [addedUp, setAddedUp] = useState([]);
     const [itemText , setItemText] = useState("");
     const [priceText , setPriceText] = useState("");
     
@@ -50,28 +50,32 @@ const WelcomePage = (props) => {
         setPrice([...price , priceText]);
         ClearText()
     };
-    
+
+    const SetToStorage = (e) =>{
+        console.log("storage total",addedUp)
+                localStorage.setItem('itemState', JSON.stringify(listOfItems));
+                localStorage.setItem('priceState', JSON.stringify(price));
+                localStorage.setItem('totalState', JSON.stringify(e));
+            }
+ 
     const handleAddTotal = (e) =>{
         e.preventDefault();
-        console.log("total ",total)
+        console.log("total ",addedUp)
         if(price.length === 0){
             return;
         }else{
             console.log("handleaddprice",price)
-            console.log("total 1",total)
-            setTotal(price.reduce((a,b) => 1*a + 1*b));
-            console.log(price.reduce((a,b) => 1*a + 1*b))
-            localStorage.setItem('itemState', JSON.stringify(listOfItems));
-            localStorage.setItem('priceState', JSON.stringify(price));
-            console.log("total 2",total);
-            localStorage.setItem('totalState', JSON.stringify(total));
+            console.log("total 1",addedUp)
+             const priceReduced = price.reduce((a,b) => 1*a + 1*b);
+            setAddedUp([priceReduced]);
+            SetToStorage(priceReduced)
         }
+        
         
 
 
          
     }
-    console.log("total", total)
     return(
         <div className = "container"> 
             <header>
@@ -106,7 +110,7 @@ const WelcomePage = (props) => {
             </body>
             <footer className="welcomeFooter">
                 <div className="totalContain">
-                    <p className = "totalP">${total}</p>
+                    <p className = "totalP">${addedUp}</p>
                     <button  className="totalButtonStyle" type="text" onClick={handleAddTotal}>TOTAL</button>
                 </div>
                 
