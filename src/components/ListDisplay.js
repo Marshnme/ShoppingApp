@@ -10,7 +10,7 @@ const ListDisplay = (props) => {
     const trashCan = <FontAwesomeIcon icon={faTrash}/>
     const edit = <FontAwesomeIcon icon={faEdit}/>
     const DeleteFunc = (num) =>{
-        // props.listOfItems.splice(num)
+        props.updateItems(props.listOfItems.filter(index => props.listOfItems.indexOf(index) != num))
     }
     console.log("props",props)
     return(
@@ -19,8 +19,8 @@ const ListDisplay = (props) => {
                 {props.listOfItems.map((groceryItem,index) => {
                                 console.log(index)
                                 return( 
-                                <div className="itemHolder">
-                                    <span onClick={DeleteFunc(index)} className="editIcon">{edit}</span>
+                                <div  className="itemHolder">
+                                    <span onClick={()=>DeleteFunc(index)} className="editIcon">{edit}</span>
                                      <p className="item" key={index}>{groceryItem}</p>
                                 </div>
                 );})}
@@ -31,7 +31,7 @@ const ListDisplay = (props) => {
                     return (<div className="priceHolder">
 
                                 <p className="price" key={index}>${priceItem}</p>
-                                <span className="trashIcon">{trashCan}</span>
+                                <span onClick={()=>DeleteFunc(index)} className="trashIcon">{trashCan}</span>
 
                              </div>)
                 })}
