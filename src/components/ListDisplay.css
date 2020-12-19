@@ -7,11 +7,42 @@
     justify-content: center;
     
 }
+/* NOT DRY */
+.itemHolder{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    margin-top:3%;
+}
 
-.item{
+.priceHolder{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    margin-top:3%;
+}
+/* not dry */
+ .trashIcon{
+    margin-left:5%;
+} 
+
+ .editIcon{
+    margin-right:5%;
+} 
+/*  */
+.items{
     width:25%;
 }
 
-.price{
+.prices{
     width:25%;
+}
+
+
+.item{
+    margin-right:10%;
+}
+
+.price{
+    margin-left:10%;
 }
