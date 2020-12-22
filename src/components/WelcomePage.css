@@ -1,3 +1,7 @@
+.welcomeHeader{
+    margin-top:5%;
+}
+
 .labels{
     display:flex;
     justify-content: center;
@@ -34,7 +38,7 @@ form .welcomeInput,.welcomeInput:focus {
 
 .addItemInputs{
     display:flex;
-    width:50%;
+    width:70%;
     justify-content: space-around;
 }
 
@@ -89,9 +93,7 @@ form .welcomeInput,.welcomeInput:focus {
     display:flex;
     justify-content: flex-end;
         width:50%;
-        border-top:1px solid black;
-        
-        
+        border-top:1px solid black;   
 }
 
 
@@ -99,3 +101,164 @@ form .welcomeInput,.welcomeInput:focus {
     margin-top:2%;
     margin-right:10%;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .labels{
+        margin-top:5%;
+    }
+    .labels h3{
+        width:50%;
+        border-bottom:1px solid black;
+    }
+    .totalContain{
+        display:flex;
+        justify-content: flex-end;
+            width:100%;
+            border-top:1px solid black;   
+
+    }
+    .totalButtonStyle{
+        border-radius: 10px;
+        outline:none;
+        margin-top:2%;
+        margin-right:4%;
+        width:15%;
+        background-color:#6aad6a;
+        border:1px solid black;
+        
+    }
+    .totalP{
+        margin-top:2%;
+        margin-right:5%;
+    }
+    .buttonStyle{
+        width:30%;
+        height:110%;
+        border-radius: 10px;
+        outline:none;
+        background-color:#6aad6a;
+        border:1px solid black;
+     }
+     .welcomeFooter{
+         margin-top:20%;
+     }
+
+     .addItemInputs{
+         margin-top:4%;
+     }
+    
+     .addItemButton{
+        margin-top:5%;
+     }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .labels{
+        margin-top:5%;
+    }
+    .labels h3{
+        width:50%;
+        border-bottom:1px solid black;
+    }
+    .totalContain{
+        display:flex;
+        justify-content: flex-end;
+            width:100%;
+            border-top:1px solid black;   
+
+    }
+    .totalButtonStyle{
+        border-radius: 10px;
+        outline:none;
+        margin-top:2%;
+        margin-right:4%;
+        width:15%;
+        background-color:#6aad6a;
+        border:1px solid black;
+        
+    }
+    .totalP{
+        margin-top:2%;
+        margin-right:5%;
+    }
+    .buttonStyle{
+        width:30%;
+        height:110%;
+        border-radius: 10px;
+        outline:none;
+        background-color:#6aad6a;
+        border:1px solid black;
+     }
+     .welcomeFooter{
+        margin-top:20%;
+    }
+
+    .addItemInputs{
+        margin-top:4%;
+    }
+   
+    .addItemButton{
+       margin-top:5%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .labels{
+        margin-top:5%;
+    }
+    .labels h3{
+        width:35%;
+        border-bottom:1px solid black;
+    }
+    .totalContain{
+        display:flex;
+        justify-content: flex-end;
+            width:70%;
+            border-top:1px solid black;   
+
+    }
+    .totalButtonStyle{
+        border-radius: 10px;
+        outline:none;
+        margin-top:2%;
+        margin-right:10%;
+        width:10%;
+        background-color:#6aad6a;
+        border:1px solid black;
+        
+    }
+    .totalP{
+        margin-top:2%;
+        margin-right:3%;
+    }
+    .buttonStyle{
+        width:20%;
+        height:110%;
+        border-radius: 10px;
+        outline:none;
+        background-color:#6aad6a;
+        border:1px solid black;
+     }
+    
+}
+
+@media only screen and (min-width: 1200px) {
+    .labels{
+        margin-top:3%;
+    }
+    .welcomeFooter{
+        margin-top:10%;
+    }
+
+    .addItemInputs{
+        margin-top:1%;
+    }
+   
+    .addItemButton{
+       margin-top:2%;
+    }
+}
+

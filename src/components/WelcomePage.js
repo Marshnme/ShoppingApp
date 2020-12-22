@@ -93,7 +93,7 @@ const WelcomePage = (props) => {
     }
     return(
         <div className = "container"> 
-            <header>
+            <header className="welcomeHeader">
                 <h1>Grocery Price Calculator!</h1>
             </header>
             <body>
