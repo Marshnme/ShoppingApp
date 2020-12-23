@@ -25,10 +25,16 @@
  .trashIcon{
     margin-left:5%;
 } 
+.trashIcon:hover{
+    cursor: pointer;
+}
 
  .editIcon{
     margin-right:5%;
 } 
+.editIcon:hover{
+    cursor: pointer;
+}
 /*  */
 .items{
     width:25%;
