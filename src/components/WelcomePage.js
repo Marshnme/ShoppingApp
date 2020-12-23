@@ -3,7 +3,7 @@ import "./WelcomePage.css"
 import ListDisplay from "./ListDisplay";
 import {useState} from "react";
 
-const WelcomePage = (props) => {
+const WelcomePage = () => {
 
     // NOTES FOR IMPROVMENTS
     // Use one state like useState([{id:1,item:fruit,price:2,},{...}])
@@ -36,6 +36,7 @@ const WelcomePage = (props) => {
             setPrice(JSON.parse(localStorage.getItem('priceState'))); 
             setAddedUp(JSON.parse(localStorage.getItem('totalState')));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     // const [listOfItems, setListOfItems] = useState([]);

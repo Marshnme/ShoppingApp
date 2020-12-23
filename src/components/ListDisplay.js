@@ -10,8 +10,8 @@ const ListDisplay = (props) => {
     const trashCan = <FontAwesomeIcon icon={faTrash}/>
     const edit = <FontAwesomeIcon icon={faEdit}/>
     const DeleteFunc = (num) =>{
-        props.updateItems(props.listOfItems.filter(index => props.listOfItems.indexOf(index) != num))
-        props.updatePrices(props.price.filter(index => props.price.indexOf(index) != num))
+        props.updateItems(props.listOfItems.filter(index => props.listOfItems.indexOf(index) !== num))
+        props.updatePrices(props.price.filter(index => props.price.indexOf(index) !== num))
     }
     console.log("props",props)
     return(
