@@ -5,6 +5,13 @@ import {useState} from "react";
 
 const WelcomePage = (props) => {
 
+    // NOTES FOR IMPROVMENTS
+    // Use one state like useState([{id:1,item:fruit,price:2,},{...}])
+    //save to local storage on item add not total calculation.
+    // include edit functionality
+    // clear comments/make notes
+
+
     const [listOfItems, setListOfItems] = useState([]);
     const [price, setPrice] = useState([]);
     const [addedUp, setAddedUp] = useState([]);
