@@ -6,14 +6,19 @@ import { faEdit} from '@fortawesome/free-solid-svg-icons'
 
 
 const ListDisplay = (props) => {
-    console.log(props.listOfItems)
+    console.log("props",props)
     const trashCan = <FontAwesomeIcon icon={faTrash}/>
     const edit = <FontAwesomeIcon icon={faEdit}/>
     const DeleteFunc = (num) =>{
         props.updateItems(props.listOfItems.filter(index => props.listOfItems.indexOf(index) !== num))
         props.updatePrices(props.price.filter(index => props.price.indexOf(index) !== num))
     }
-    console.log("props",props)
+
+    // const updateFunc = (num) =>{
+    //     props.updateItems(props.listOfItems.filter(index => props.listOfItems.indexOf(index) !== num))
+    //     props.updatePrices(props.price.filter(index => props.price.indexOf(index) !== num))
+    // }
+    
     return(
         <div className = "wrapper"> 
             <div className="items">
