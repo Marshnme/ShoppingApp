@@ -6,12 +6,11 @@ import {useState} from "react";
 const WelcomePage = () => {
 
     // NOTES FOR IMPROVMENTS
-    // Use one state like useState([{id:1,item:fruit,price:2,},{...}])
     //save to local storage on item add not total calculation.
     // include edit functionality
     // clear comments/make notes
 
-    const [itemList, setItemList] = useState([{}])
+   
     const [listOfItems, setListOfItems] = useState([]);
     const [price, setPrice] = useState([]);
     const [addedUp, setAddedUp] = useState([]);
@@ -33,14 +32,9 @@ const WelcomePage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
-    function makeCounter() {
-        var i = 0;
-        return function() {
-            return i++;
-        }
-    }
+   
     
-    let makeId = makeCounter();
+
     
     
     const ClearText = () => {
@@ -57,7 +51,7 @@ const WelcomePage = () => {
     };
     const handleSubmit = (e) =>{
         e.preventDefault();
-        setItemList([...itemList, {id:makeId(),name:itemText,price:priceText}])
+        
         setListOfItems([...listOfItems, itemText]);
         setPrice([...price , priceText]);
         ClearText();
@@ -96,14 +90,15 @@ const WelcomePage = () => {
         }
 
 
-    console.log(itemList)
+    
     }
     return(
-        <div className = "container"> 
+        <body>
+            <div className = "container"> 
             <header className="welcomeHeader">
                 <h1>Grocery Price Calculator!</h1>
             </header>
-            <body>
+            
                 <div className = "inputSection">
                     <form className="inputParent" onSubmit = {handleSubmit}>
                         <div className="addItemInputs">
@@ -129,7 +124,7 @@ const WelcomePage = () => {
                         <h3>Price</h3>
                     </div>
                     <ListDisplay listOfItems={listOfItems} updateItems = {setListOfItems} price = {price} updatePrices = {setPrice} ></ListDisplay>
-            </body>
+           
             <footer className="welcomeFooter">
                 <div className="totalContain">
                     <p className = "totalP">${addedUp}</p>
@@ -137,7 +132,8 @@ const WelcomePage = () => {
                 </div>
                 
             </footer>
-        </div>
+        </div> 
+        </body>
     );
 };
 
