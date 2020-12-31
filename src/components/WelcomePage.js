@@ -11,20 +11,14 @@ const WelcomePage = () => {
     // include edit functionality
     // clear comments/make notes
 
-
+    const [itemList, setItemList] = useState([{}])
     const [listOfItems, setListOfItems] = useState([]);
     const [price, setPrice] = useState([]);
     const [addedUp, setAddedUp] = useState([]);
     const [itemText , setItemText] = useState("");
     const [priceText , setPriceText] = useState("");
 
-    // localStorage.setItem('itemState', JSON.stringify(listOfItems))
-    //     localStorage.setItem('priceState', JSON.stringify(price))
-    //     localStorage.setItem('totalState', JSON.stringify(total))
-    
-// localStorage.getItem('itemState')
-//         JSON.parse(localStorage.getItem('priceState'))
-//         JSON.parse(localStorage.getItem('totalState'))
+
     useEffect(() => {
         
         if(localStorage.getItem('itemState') == null){
@@ -39,11 +33,15 @@ const WelcomePage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
-    // const [listOfItems, setListOfItems] = useState([]);
-    // const [price, setPrice] = useState([]);
-    // const [addedUp, setAddedUp] = useState([]);
-    // const [itemText , setItemText] = useState("");
-    // const [priceText , setPriceText] = useState("");
+    function makeCounter() {
+        var i = 0;
+        return function() {
+            return i++;
+        }
+    }
+    
+    let makeId = makeCounter();
+    
     
     const ClearText = () => {
         setItemText("");
@@ -59,6 +57,7 @@ const WelcomePage = () => {
     };
     const handleSubmit = (e) =>{
         e.preventDefault();
+        setItemList([...itemList, {id:makeId(),name:itemText,price:priceText}])
         setListOfItems([...listOfItems, itemText]);
         setPrice([...price , priceText]);
         ClearText();
@@ -97,7 +96,7 @@ const WelcomePage = () => {
         }
 
 
-    
+    console.log(itemList)
     }
     return(
         <div className = "container"> 
