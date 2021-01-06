@@ -14,10 +14,22 @@ const ListDisplay = (props) => {
         props.updatePrices(props.price.filter(index => props.price.indexOf(index) !== num))
     }
 
-    // const updateFunc = (num) =>{
-    //     props.updateItems(props.listOfItems.filter(index => props.listOfItems.indexOf(index) !== num))
-    //     props.updatePrices(props.price.filter(index => props.price.indexOf(index) !== num))
-    // }
+    const UpdateFunc = (num) =>{
+        // props.listOfItems.map(index => props.listOfItems.indexOf(index) == num)
+        props.listOfItems.map((index) => {
+            if(props.listOfItems.indexOf(index) === num){
+                console.log("updateme")
+                // setEditing(true)
+            }
+        })
+
+        props.price.map((index) => {
+            if(props.price.indexOf(index) === num){
+                console.log("updateme2")
+                // setEditing(true)
+            }
+        })
+    }
     
     return(
         <div className = "wrapper"> 
@@ -26,7 +38,7 @@ const ListDisplay = (props) => {
                                 console.log(index)
                                 return( 
                                 <div  className="itemHolder">
-                                    <span className="editIcon">{edit}</span>
+                                    <span onClick={()=>UpdateFunc(index)} className="editIcon">{edit}</span>
                                      <p className="item" key={index}>{groceryItem}</p>
                                 </div>
                 );})}
