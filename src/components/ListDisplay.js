@@ -1,11 +1,15 @@
 import React from "react";
 import "./ListDisplay.css";
+import {useState} from "react";
+import EditField from "./EditField"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash} from '@fortawesome/free-solid-svg-icons'
 import { faEdit} from '@fortawesome/free-solid-svg-icons'
 
 
 const ListDisplay = (props) => {
+
+    const [editing, setEditing] =useState(false)
     console.log("props",props)
     const trashCan = <FontAwesomeIcon icon={faTrash}/>
     const edit = <FontAwesomeIcon icon={faEdit}/>
@@ -15,18 +19,17 @@ const ListDisplay = (props) => {
     }
 
     const UpdateFunc = (num) =>{
-        // props.listOfItems.map(index => props.listOfItems.indexOf(index) == num)
         props.listOfItems.map((index) => {
             if(props.listOfItems.indexOf(index) === num){
                 console.log("updateme")
-                // setEditing(true)
+                setEditing(true)
             }
         })
 
         props.price.map((index) => {
             if(props.price.indexOf(index) === num){
                 console.log("updateme2")
-                // setEditing(true)
+                setEditing(true)
             }
         })
     }
@@ -39,7 +42,7 @@ const ListDisplay = (props) => {
                                 return( 
                                 <div  className="itemHolder">
                                     <span onClick={()=>UpdateFunc(index)} className="editIcon">{edit}</span>
-                                     <p className="item" key={index}>{groceryItem}</p>
+                                     <p className="item" key={index}>{editing ? <EditField price={props.price} listOfItems={props.listOfItems} updatePrices={props.updatePrices} updateItems={props.updateItems}></EditField> : groceryItem}</p>
                                 </div>
                 );})}
             </div>
@@ -48,7 +51,7 @@ const ListDisplay = (props) => {
                     
                     return (<div className="priceHolder">
 
-                                <p className="price" key={index}>${priceItem}</p>
+                                <p className="price" key={index}>${editing ? <EditField price={props.price} listOfItems={props.listOfItems} updatePrices={props.updatePrices} updateItems={props.updateItems}></EditField> : priceItem}</p>
                                 <span onClick={()=>DeleteFunc(index)} className="trashIcon">{trashCan}</span>
 
                              </div>)
